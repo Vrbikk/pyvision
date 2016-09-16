@@ -1,0 +1,17 @@
+#NVR PATH SECTION:
+STATUS_PATH = "/ISAPI/System/status"
+
+
+
+
+#ELEMENT NAMES:
+STATUS_UPTIME = "deviceUpTime"
+
+
+
+#USERS
+EMAIL = ""
+EMAIL_PASSWORD = ""
+
+USER = ""
+USER_PASSWORD = ""
