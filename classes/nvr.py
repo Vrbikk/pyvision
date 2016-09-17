@@ -6,9 +6,26 @@ class Nvr:
 		self.name = name
 		self.ip = ip
 		self.port = port
+		self.status = "OFFLINE"
 
-	def set_status(self, status):
-		self.status = status	
+		self.uptime = None
+
+	def get_information(self):
+		if self.status == "ONLINE":
+			return "\t" + self.status + "\n\t" + self.uptime
+		else:
+			return "\t" + self.status	
+
+	@property
+	def status(self):
+		return self._status
+	
+	@status.setter
+	def status(self, status_param):
+		if status_param == "OFFLINE" or status_param ==	"ONLINE":
+			self._status = status_param
+		else:
+			raise ValueError("bad status Value")	
 
 	@property
 	def id(self):
@@ -56,4 +73,4 @@ class Nvr:
 			raise ValueError("bad port")	
 
 	def __str__(self):
-		return "NVR: " + str(self._id) + " - " + self._name + " IP: " + self._ip + ":" + str(self._port)  
+		return "NVR " + str(self._id) + " - " + self._name + ": " + self._ip + ":" + str(self._port)  

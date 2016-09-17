@@ -14,7 +14,10 @@ def scan():
 	nvr_list = loader.load()
 
 	for i in range(0, len(nvr_list)):
-		nvr_list[i].set_status(mining.get_device_status(nvr_list[i]))	
+		nvr_list[i].status = mining.get_device_status(nvr_list[i])
+		
+		if nvr_list[i].status == "ONLINE":
+			nvr_list[i].uptime = mining.get_device_uptime(nvr_list[i])
 
 	logger.info('Finished scan procedure')	
 
